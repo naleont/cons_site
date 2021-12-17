@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Заявка на консультацию {% endblock %}
+
+{% block content %}
+  <form class="black_text" action="/results" method = 'GET'>
+    <fieldset>
+      <legend><h2><b>Заявка на получение консультации</b></h2></legend>
+    Контактный e-mail<br>
+        <span class="comment">На этот адрес мы отправим готовую консультацию</span><br>
+        <input class="short_field" name="email" type="text" placeholder="example@example.com" required><br><br>
+    Название работы<br>
+        <input class="short_field" name="work_name" type="text" placeholder="Изучение ракообразных водоемов Пензенской области" required><br><br>
+    Научная область работы<br>
+        <input class="short_field" name="area" type="text" placeholder="Зоология беспозвоночных" required><br><br>
+    Если работа подана на Конкурс им. В. И. Вернадского, укажите ее регистрационный номер<br>
+          <input type="text" name="work_no" placeholder="210001" pattern = "[0-9]{6}"><br><br>
+    ФИО автора(ов)<br>
+        <span class="comment">Если авторов несколько, укажите их ФИО через запятую</span><br>
+        <input class="short_field" name="authors" type="text" placeholder="Палкин Валентин Сергеевич" pattern="^[а-яА-ЯЁё ]+$" required><br><br>
+    ФИО руководителя<br>
+        <input class="short_field" name="supervisor" type="text" placeholder="Губкина Мария Вячеславовна" pattern="^[а-яА-ЯЁё ]+$" required><br><br>
+    Класс автора(ов) работы<br>
+        <p><select name="grade" required>
+            <option class="container-fluid bg-2" selected="true" disabled>Класс</option>
+            <option class="container-fluid bg-2" value="5">5</option>
+            <option class="container-fluid bg-2" value="6">6</option>
+            <option class="container-fluid bg-2" value="7">7</option>
+            <option class="container-fluid bg-2" value="8">8</option>
+            <option class="container-fluid bg-2" value="9">9</option>
+            <option class="container-fluid bg-2" value="10">10</option>
+            <option class="container-fluid bg-2" value="11">11</option>
+        </select></p><br>
+    Собираетесь ли вы участвовать в Конкурсе им. В. И. Вернадского с этой работой?<br>
+        <input class="container-fluid bg-2" type="radio" name="participation" value="yes" required>Да
+        <input class="container-fluid bg-2" type="radio" name="participation" value="no" required>Нет<br><br>
+<!--    Файл с текстом работы<br>-->
+<!--        <input type="file"><br><br>-->
+    Стадия выполнения работы<br>
+        <p><select name="stage" required>
+            <option class="container-fluid bg-2" selected="true" disabled>Стадия выполнения работы</option>
+            <option class="container-fluid bg-2" value="finished">Работа закончена, готовимся к участию в конкурсах</option>
+            <option class="container-fluid bg-2" value="not finished">Работа не закончена</option>
+            <option class="container-fluid bg-2" value="not started">Работа не начата, но есть идеи</option>
+        </select></p><br><br>
+    <h3 class="bg-2"><input type="submit" value="Отправить"></h3>
+    <h3 class="bg-2"><input type="reset" value="Сбросить данные формы"></h3>
+    </fieldset>
+  </form>
+{% endblock %}
